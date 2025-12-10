@@ -1,0 +1,559 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const title = 'Portafolio Constanza Olivos Fernández';
+const description = 'Estudiante de Ingeniería Civil en Computación mención informática en la UTEM.';
+
+
+// Para carrusel de proyectos
+const PROJECTS = [
+  {
+    title: "Recorrido del Caballo en Ajedrez",
+    tech: "Python · Algoritmos · Backtracking/BFS",
+    desc: "Implementación del recorrido del caballo en un tablero de ajedrez mediante técnicas de búsqueda y optimización algorítmica.",
+    image: "/proyectos/ajedrez.png", 
+    link: "https://github.com/Coniiii/Caballo-de-ajedrez" 
+  },
+  {
+    title: "Aplicación de votaciones",
+    tech: "Flutter · Firebase (Authentication) · Arquitectura Limpia",
+    desc: "Aplicación móvil para Android que usa autenticación segura con Google mediante Firebase y consume una API externa para gestionar el flujo de votación. Incluye manejo de estados, persistencia de sesión y una arquitectura por capas.",
+    image: "/proyectos/app.png",
+    
+  },
+  {
+    title: "Predicción de cultivos en la Araucanía",
+    tech: "Python · Redes Neuronales (MLP) · Modelos Ensemble",
+    desc: "Implementación de modelos avanzados de Machine Learning para predecir el rendimiento de trigo, con EDA, ajuste de hiperparámetros y análisis de interpretabilidad para apoyar la agricultura de precisión.",
+    image: "/proyectos/residuos_MLP.png", 
+    link: "https://github.com/JavierNancoB/Prediccion-de-cultivos-en-la-Araucania" 
+  },
+  {
+    title: "Taller de Análisis de Algoritmos Backtracking",
+    tech: "Python · Backtracking · Algoritmos",
+    desc: "Resolución del problema de colocar piezas de dominó en un tablero garantizando cortes en todas las filas y columnas. Se implementó Backtracking para explorar configuraciones válidas, verificando restricciones y exportando la solución final a Excel.",
+    image: "/proyectos/Backtracking.png",
+    link: "https://github.com/JavierNancoB/Backtracking"
+  },
+  {
+    title: "La Torre Encantada",
+    tech: "Python · Grafos · Simulación",
+    desc: "Simulación de 5000 partidas entre un héroe y una bruja utilizando grafos, probabilidad y análisis estadístico para evaluar estrategias y condiciones de victoria.",
+    image: "/proyectos/djikstra.png", 
+    link: "https://github.com/JavierNanco/Juego-Heroe-y-Bruja-python"
+  },
+
+  {
+    title: "Base de Datos Pokémon",
+    tech: "SQL · Modelado de Datos · ERD",
+    desc: "Diseño y construcción de una base de datos completa para ciudades, gimnasios, centros Pokémon y tiendas, aplicando modelos entidad-relación y consultas SQL.",
+    image: "/proyectos/pokemon.png",
+    link: "https://github.com/Coniiii/Base-de-datos-de-Pokemon"
+  }
+
+];
+---
+
+<Layout title={title} description={description}>
+  {/* Hero Section */}
+  <section id="inicio" class="pt-20 pb-32 sm:pt-32">
+    <div class="mx-auto max-w-5xl flex flex-col-reverse md:flex-row items-center gap-12 md:gap-8">
+      
+      {/* Texto */}
+      <div class="flex-1 space-y-6 text-center md:text-left">
+
+        
+        <h1 class="text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-5xl md:text-6xl">
+          Hola, soy <br class="hidden md:block" />
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-500 dark:from-purple-400 dark:to-blue-400">
+            Constanza Olivos
+          </span>
+        </h1>
+        
+        <p class="mx-auto md:mx-0 max-w-lg text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
+          Soy estudiante de 5to año de <strong>Ingeniería Civil en Computación  mención informática</strong> en la UTEM. Mi fortaleza es ser <strong>perseverante y confiable</strong>: cuando un proyecto me desafía, trabajo con determinación hasta completarlo. Valoro la <strong>empatía</strong> en el trabajo en equipo, la <strong>atención al detalle</strong> en cada revisión, y la <strong>responsabilidad</strong> como compromiso inquebrantable. Fuera del código, aplico esa misma dedicación cuando cocino, perfeccionando cada paso de las recetas, y cuando veo series, actividades que al igual que la programación, valoran la paciencia y la observación atenta de los detalles.
+        </p>
+        {/*# me envia hacia allá */}
+        <div class="flex flex-wrap items-center justify-center md:justify-start gap-4 pt-2">
+          <a
+          
+            href="#habilidades" 
+            class="rounded-full bg-purple-600 px-8 py-3 text-sm font-semibold text-white shadow-lg shadow-purple-500/10 transition-all hover:bg-purple-700 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 dark:focus:ring-offset-slate-900"
+          >
+            Ver mis habilidades
+          </a>
+          <a
+            href="#proyectos"
+            class="rounded-full px-8 py-3 text-sm font-semibold transition-all border bg-white text-slate-700 hover:bg-purple-100 hover:text-purple-700 hover:scale-105 dark:bg-slate-800 dark:text-slate-200 dark:border-slate-700 dark:hover:bg-slate-700 dark:hover:text-white"
+
+          >
+            Proyectos académicos
+          </a>
+        </div>
+
+        <div class="pt-6 flex items-center justify-center md:justify-start gap-8 text-sm text-slate-500 dark:text-slate-400">
+           <div class="flex items-center gap-2">
+             <span class="flex h-2 w-2 rounded-full bg-green-500 animate-pulse"></span>
+             Disponible para proyectos
+           </div>
+           <div> Santiago, Chile</div>
+        </div>
+      </div>
+
+      {/* Imagen Limpia */}
+      <div class="relative group">
+        <div class="absolute -inset-1 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 opacity-30 blur transition duration-500 group-hover:opacity-60"></div>
+        <div class="relative h-64 w-64 overflow-hidden rounded-full border-4 border-white shadow-2xl dark:border-slate-800 sm:h-80 sm:w-80">
+          <img
+            src="/mi_foto.jpg"
+            alt="Constanza Olivos"
+            class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* Habilidades */}
+  <section id="habilidades" class="py-20">
+    <div class="mx-auto max-w-5xl">
+      <div class="mb-12 text-center">
+        <h2 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl">
+          Mis Habilidades
+        </h2>
+        <p class="mt-4 text-slate-600 dark:text-slate-300">
+          Herramientas y tecnologías que manejo en mi día a día.
+        </p>
+      </div>
+
+      <div class="grid gap-8 md:grid-cols-3">
+        {/* Cuadrado 1: Lenguajes */}
+          <article class="group relative overflow-hidden rounded-2xl border border-white/20 bg-white/60 p-6 shadow-xl backdrop-blur-md transition-all hover:-translate-y-1 hover:shadow-2xl dark:border-white/10 dark:bg-[#1e293b]/60">
+            <div class="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-purple-500/10 blur-2xl transition-all group-hover:bg-purple-500/20"></div>
+            
+            <div class="relative">
+              <div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-purple-100 text-2xl dark:bg-purple-900/30">
+                <img src="/public/pc.svg" alt="Herramientas" class="h-12 w-12" />
+              </div>
+              <h3 class="text-xl font-bold text-slate-900 dark:text-white">Lenguajes de Programación</h3>
+              <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Lógica, estructuras y desarrollo</p>
+              
+              <ul class="mt-4 space-y-2">
+                <li class="flex items-center text-sm text-slate-700 dark:text-slate-200">
+                  <svg class="mr-2 h-4 w-4 text-purple-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  Python
+                </li>
+                <li class="flex items-center text-sm text-slate-700 dark:text-slate-200">
+                  <svg class="mr-2 h-4 w-4 text-purple-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  C / C++
+                </li>
+                <li class="flex items-center text-sm text-slate-700 dark:text-slate-200">
+                  <svg class="mr-2 h-4 w-4 text-purple-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  SQL
+                </li>
+                <li class="flex items-center text-sm text-slate-700 dark:text-slate-200">
+                  <svg class="mr-2 h-4 w-4 text-purple-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  Dart (Básico)
+                </li>
+              </ul>
+            </div>
+          </article>
+
+        {/* Cuadrado 2: Herramientas & Web */}
+        <article class="group relative overflow-hidden rounded-2xl border border-white/20 bg-white/60 p-6 shadow-xl backdrop-blur-md transition-all hover:-translate-y-1 hover:shadow-2xl dark:border-white/10 dark:bg-[#1e293b]/60">
+          <div class="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-purple-500/10 blur-2xl transition-all group-hover:bg-purple-500/20"></div>
+          
+          <div class="relative">
+            <div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-purple-100 text-2xl dark:bg-purple-900/30">
+              <img src="/public/herramientas.svg" alt="Herramientas" class="h-12 w-12" />
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white">Herramientas & Tecnologías</h3>
+            <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Entornos y herramientas que utilizo</p>
+            
+            <ul class="mt-4 space-y-2">
+              <li class="flex items-center text-sm text-slate-700 dark:text-slate-200">
+                <svg class="mr-2 h-4 w-4 text-purple-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span class="font-medium">Visual Studio Code:</span> <span class="ml-1">Editor principal</span>
+              </li>
+              <li class="flex items-center text-sm text-slate-700 dark:text-slate-200">
+                <svg class="mr-2 h-4 w-4 text-purple-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span class="font-medium">Git & GitHub:</span> <span class="ml-1">Control de versiones</span>
+              </li>
+              <li class="flex items-center text-sm text-slate-700 dark:text-slate-200">
+                <svg class="mr-2 h-4 w-4 text-purple-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span class="font-medium">SQLite / MySQL:</span> <span class="ml-1">Bases de datos</span>
+              </li>
+              <li class="flex items-center text-sm text-slate-700 dark:text-slate-200">
+                <svg class="mr-2 h-4 w-4 text-purple-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span class="font-medium">Flutter:</span> <span class="ml-1">Básico (en aprendizaje)</span>
+              </li>
+              <li class="flex items-center text-sm text-slate-700 dark:text-slate-200">
+                <svg class="mr-2 h-4 w-4 text-purple-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span class="font-medium">Astro:</span> <span class="ml-1">Framework web (en aprendizaje)</span>
+              </li>
+            </ul>
+          </div>
+        </article>
+
+        {/* Cuadrado 3: Certificaciones Profesionales */}
+        <article class="group relative overflow-hidden rounded-2xl border border-white/20 bg-white/60 p-6 shadow-xl backdrop-blur-md transition-all hover:-translate-y-1 hover:shadow-2xl dark:border-white/10 dark:bg-[#1e293b]/60">
+          <div class="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-purple-500/10 blur-2xl transition-all group-hover:bg-purple-500/20"></div>
+          
+          <div class="relative">
+            <div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-purple-100 text-2xl dark:bg-purple-900/30">
+              <img src="/public/verificacion_icono.svg" alt="Herramientas" class="h-12 w-12" />
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white">Certificaciones Profesionales</h3>
+            <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Cursos certificados en tecnologías cloud y seguridad</p>
+            
+            {/* Contenedor de certificados */}
+            <div class="mt-4 grid grid-cols-3 gap-3">
+              <!-- Certificado AWS Cloud Semester 1 -->
+              <a 
+                href="/certificaciones/AWS_1.pdf" 
+                download="AWS-Cloud-Semester-1-Constanza-Olivos.pdf"
+                target="_blank"
+                class="group/cert block overflow-hidden rounded-lg border border-slate-200 hover:border-blue-500 dark:border-slate-700 transition-all hover:shadow-md"
+                title="Descargar certificado AWS Cloud Semester 1"
+              > <!--Empieza lo que va adentro -->
+                <img 
+                  src="/certificaciones/AWS1.png" 
+                  alt="Certificado AWS Academy Cloud Semester 1"
+                  class="h-20 w-full object-cover transition-transform duration-300 group-hover/cert:scale-105"
+                />
+                <p class="mt-1 text-center text-xs font-medium text-slate-700 dark:text-slate-300">
+                  AWS Cloud S1
+                </p>
+              </a>
+              
+              <!-- Certificado AWS Cloud Semester 2 -->
+              <a 
+                href="/certificaciones/AWS_2.pdf" 
+                download="AWS-Cloud-Semester-2-Constanza-Olivos.pdf"
+                target="_blank"
+                class="group/cert block overflow-hidden rounded-lg border border-slate-200 hover:border-blue-500 dark:border-slate-700 transition-all hover:shadow-md"
+                title="Descargar certificado AWS Cloud Semester 2"
+              >
+                <img 
+                  src="/certificaciones/AWS2.png" 
+                  alt="Certificado AWS Academy Cloud Semester 2"
+                  class="h-20 w-full object-cover transition-transform duration-300 group-hover/cert:scale-105"
+                />
+                <p class="mt-1 text-center text-xs font-medium text-slate-700 dark:text-slate-300">
+                  AWS Cloud S2
+                </p>
+              </a>
+              
+              <!-- Certificado Hacker Mentor -->
+              <a 
+                href="/certificaciones/hackermentor.pdf" 
+                download="Ciberseguridad-Ethical-Hacking-Constanza-Olivos.pdf"
+                target="_blank"
+                class="group/cert block overflow-hidden rounded-lg border border-slate-200 hover:border-green-500 dark:border-slate-700 transition-all hover:shadow-md"
+                title="Descargar certificado Ciberseguridad y Ethical Hacking"
+              >
+                <img 
+                  src="/certificaciones/logo_hacker.jfif" 
+                  alt="Certificado Hacker Mentor - Ciberseguridad y Ethical Hacking"
+                  class="h-20 w-full object-cover transition-transform duration-300 group-hover/cert:scale-105"
+                />
+                <p class="mt-1 text-center text-xs font-medium text-slate-700 dark:text-slate-300">
+                  Ethical Hacking
+                </p>
+              </a>
+            </div>
+            
+            <p class="mt-4 text-xs text-slate-500 dark:text-slate-400 text-center">
+              Haz clic en cualquier certificado descargar el PDF
+            </p>
+            
+            
+            <div class="mt-4 pt-4 border-t border-slate-100 dark:border-slate-700">
+              <p class="text-xs text-slate-600 dark:text-slate-400">
+                <strong>Total horas certificadas:<br>
+                • AWS Cloud S1: 60 horas<br>
+                • AWS Cloud S2: 60 horas<br>
+                • Ethical Hacking: 8 horas
+              </p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+{/* --- INICIO SECCIÓN PROYECTOS --- */}
+  <section id="proyectos" class="py-20 relative overflow-hidden">
+    <div class="mx-auto max-w-5xl px-4 relative">
+      
+      <div class="mb-12 md:flex md:items-end md:justify-between">
+        <div>
+          <h2 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl">
+            Proyectos Académicos
+          </h2>
+          <p class="mt-4 max-w-xl text-slate-600 dark:text-slate-300">
+            Aplicación práctica de conocimientos teóricos durante la carrera.
+          </p>
+        </div>
+        
+        <div class="flex gap-4 mt-4 md:mt-0">
+          <button id="prev-btn" class="p-2 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm hover:bg-purple-50 dark:hover:bg-slate-700 transition-colors group" aria-label="Anterior">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-slate-600 dark:text-slate-300 group-hover:text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+          <button id="next-btn" class="p-2 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm hover:bg-purple-50 dark:hover:bg-slate-700 transition-colors group" aria-label="Siguiente">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-slate-600 dark:text-slate-300 group-hover:text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="overflow-hidden">
+        <div id="carousel-track" class="flex transition-transform duration-500 ease-out">
+          
+          {PROJECTS.map((project) => (
+            <div class="w-full md:w-1/3 flex-shrink-0 px-3 group/card">
+              
+              <div class="h-full flex flex-col rounded-2xl border border-slate-200 bg-white shadow-sm transition-all hover:border-purple-500 hover:shadow-md dark:border-slate-700 dark:bg-slate-800 dark:hover:border-purple-400 overflow-hidden">
+                
+                
+                <div class="relative h-48 w-full overflow-hidden bg-slate-50 dark:bg-slate-900/50">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                  
+                    class="h-full w-full object-contain p-2 transition-transform duration-500 group-hover/card:scale-105"
+                    loading="lazy"
+                  />
+                </div>
+                {/* ---------------------------------------- */}
+
+                <div class="flex flex-1 flex-col justify-between p-6">
+                  <div>
+                    <h3 class="text-lg font-semibold text-slate-900 dark:text-white group-hover/card:text-purple-600 dark:group-hover/card:text-purple-400 transition-colors">
+                      {project.title}
+                    </h3>
+                    <p class="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+                      {project.desc}
+                    </p>
+                  </div>
+
+                  <div class="mt-6 flex items-center justify-between border-t border-slate-100 pt-4 dark:border-slate-700 gap-3">
+                    <span class="text-xs font-mono font-medium text-purple-600 dark:text-purple-400 truncate">
+                      {project.tech}
+                    </span>
+
+                    {/* Solo muestra el botón si project.link existe */}
+                    {project.link && (
+                      <a
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="flex items-center justify-center h-10 w-10 rounded-full bg-slate-900 transition-transform hover:scale-110 hover:bg-slate-700 dark:bg-white dark:hover:bg-slate-200 shadow-md group/git"
+                        title="Ver código fuente"
+                      >
+                        <img 
+                          src="/public/github-mark-white.png" 
+                          alt="GitHub Logo" 
+                          class="h-5 w-5 dark:invert transition-all" 
+                        />
+                      </a>
+                    )}
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const track = document.getElementById('carousel-track');
+      const prevBtn = document.getElementById('prev-btn');
+      const nextBtn = document.getElementById('next-btn');
+
+      if (track && prevBtn && nextBtn) {
+        let currentIndex = 0;
+        const slides = track.children;
+        const totalSlides = slides.length;
+        
+        const getSlidesPerView = () => window.innerWidth >= 768 ? 3 : 1;
+
+        const updateCarousel = () => {
+          const slidesPerView = getSlidesPerView();
+          const slideWidth = 100 / slidesPerView;
+          track.style.transform = `translateX(-${currentIndex * slideWidth}%)`;
+        };
+
+        nextBtn.addEventListener('click', () => {
+          const slidesPerView = getSlidesPerView();
+          if (currentIndex < totalSlides - slidesPerView) {
+            currentIndex++;
+            updateCarousel();
+          } else {
+            currentIndex = 0;
+            updateCarousel();
+          }
+        });
+
+        prevBtn.addEventListener('click', () => {
+          if (currentIndex > 0) {
+            currentIndex--;
+            updateCarousel();
+          } else {
+            const slidesPerView = getSlidesPerView();
+            currentIndex = totalSlides - slidesPerView;
+            updateCarousel();
+          }
+        });
+
+        window.addEventListener('resize', () => {
+          currentIndex = 0;
+          updateCarousel();
+        });
+      }
+    });
+  </script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const track = document.getElementById('carousel-track');
+      const prevBtn = document.getElementById('prev-btn');
+      const nextBtn = document.getElementById('next-btn');
+
+      // Validamos que existan los elementos antes de ejecutar lógica
+      if (track && prevBtn && nextBtn) {
+        let currentIndex = 0;
+        const slides = track.children;
+        const totalSlides = slides.length;
+        
+        // Calculamos cuántos slides se ven 1 en móvil, 3 en escritorio (md)
+        const getSlidesPerView = () => window.innerWidth >= 768 ? 3 : 1;
+
+        const updateCarousel = () => {
+          const slidesPerView = getSlidesPerView();
+          const slideWidth = 100 / slidesPerView;
+          track.style.transform = `translateX(-${currentIndex * slideWidth}%)`;
+        };
+
+        // Botón Siguiente
+        nextBtn.addEventListener('click', () => {
+          const slidesPerView = getSlidesPerView();
+          // Si no hemos llegado al final, avanzamos
+          if (currentIndex < totalSlides - slidesPerView) {
+            currentIndex++;
+            updateCarousel();
+          } else {
+            // Opcional: Volver al principio (loop)
+            currentIndex = 0;
+            updateCarousel();
+          }
+        });
+
+        // Botón Anterior
+        prevBtn.addEventListener('click', () => {
+          if (currentIndex > 0) {
+            currentIndex--;
+            updateCarousel();
+          } else {
+            // Opcional: Ir al final
+            const slidesPerView = getSlidesPerView();
+            currentIndex = totalSlides - slidesPerView;
+            updateCarousel();
+          }
+        });
+
+        // Ajustar el carrusel si cambian el tamaño de la ventana
+        window.addEventListener('resize', () => {
+          currentIndex = 0; // Reiniciamos para evitar desajustes visuales
+          updateCarousel();
+        });
+      }
+    });
+  </script>
+  {/* --- FIN SECCIÓN PROYECTOS --- */}
+
+  {/* Contacto */}
+  <section id="contacto" class="py-20 text-center">
+    <div class="mx-auto max-w-3xl rounded-3xl bg-gradient-to-br from-purple-600 to-blue-600 p-1">
+      <div class="rounded-[22px] bg-white px-8 py-16 dark:bg-[#0c1a32]">
+        <h2 class="text-3xl font-bold text-slate-900 dark:text-white">Contactame</h2>
+        <p class="mt-4 text-slate-600 dark:text-slate-300">
+          Estoy disponible para nuevas oportunidades y practicas profesionales.
+        </p>
+        
+        <div class="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <a
+            href="mailto:coniolifer@gmail.com"
+            class="flex items-center gap-2 rounded-full bg-slate-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-slate-700 hover:scale-105 dark:bg-purple-700 dark:text-slate-100 dark:hover:bg-purple-600"
+          >
+            <img 
+              src="/public/correo.svg"
+              alt="Icono correo"
+              class="h-5 w-5 object-cover transition-transform duration-300 group-hover/cert:scale-105"
+            />
+            coniolifer@gmail.com
+          </a>
+
+          <a
+            href="https://github.com/Coniiii"
+            class="flex items-center gap-2 rounded-full bg-slate-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-slate-700 hover:scale-105 dark:bg-purple-700 dark:text-slate-100 dark:hover:bg-purple-600"
+          >
+            <img 
+              src="/public/github-mark-white.png"
+              alt="Icono correo"
+              class="h-5 w-5 object-cover transition-transform duration-300 group-hover/cert:scale-105"
+            />
+            GitHub
+          </a>
+
+
+          <!--hover:scale-105 antes de dark para mini zoom -->
+          <a 
+            href="/public/Curriculum_vitae_2025_Constanza_Olivos.pdf" 
+            download="Curriculum-Constanza-Olivos.pdf"
+            target="_blank"
+            
+            class="flex items-center gap-2 rounded-full bg-slate-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-slate-700 dark:bg-purple-700 hover:scale-105 dark:text-slate-100 dark:hover:bg-purple-600"
+            title="Descargar curriculum"
+          > <!--Empieza lo que va adentro -->
+            <img 
+              src="/public/descargar.svg"  
+              alt="Curriculum"
+              class="h-5 w-5 object-cover transition-transform duration-300 group-hover/cert:scale-105"
+            />
+
+            Descargar CV
+
+          </a>
+
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
