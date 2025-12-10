@@ -2,6 +2,10 @@
 
 Este repositorio contiene el código fuente de mi portafolio personal, desarrollado con **Astro** y **Tailwind CSS v4**. El proyecto está estructurado para separar el código fuente de la versión compilada lista para producción.
 
+## Link de la pagina
+
+https://coniiii.github.io/Portafolio/
+
 ## Tecnologías Utilizadas
 
 * **Astro:** Framework web para optimización y velocidad.
@@ -42,9 +46,7 @@ cd codigo
 npm run build
 ```
 
-## Link de la pagina
 
-https://coniiii.github.io/Portafolio/
 
 ```text
 /
