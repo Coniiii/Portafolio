@@ -42,6 +42,10 @@ cd codigo
 npm run build
 ```
 
+## Link de la pagina
+
+https://coniiii.github.io/Portafolio/
+
 ```text
 /
 ├── codigo/             # <--- AQUÍ se trabaja (Source Code)
@@ -50,6 +54,6 @@ npm run build
 │   ├── package.json    # Dependencias y scripts
 │   └── astro.config.mjs # Configuración (apunta a ../web)
 │
-└── web/                # <--- AQUÍ se genera el sitio (Build Output)
+└── docs/                # <--- AQUÍ se genera el sitio (Build Output)
     └── (Archivos HTML/CSS/JS listos para publicar)
 
